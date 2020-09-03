@@ -1,0 +1,179 @@
+.inside-header {
+	display: none;
+}
+.offscreen {
+    position: absolute;
+    top: -10000em;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+/* Header */
+
+.main-navigation {
+    position: fixed;
+	width: 100%;
+    font-size: 18px;
+    top: 0;
+    background: transparent;
+    overflow: hidden;
+    z-index: 100;
+}
+    .main-navigation.fixed {
+        box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8);
+    }
+    .main-navigation::before {
+        background: linear-gradient(177deg, rgba(0, 0, 0, 0.85) 20%, rgba(0, 0, 0, 0.5) 100%);
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s; 
+    }
+    .main-navigation.fixed::before,
+    .main-navigation.toggled::before {
+        opacity: 1;
+    }
+    .main-navigation.toggled::before {
+        background: linear-gradient(160deg, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.6) 100%);
+    }
+.main-navigation .inside-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    transition: padding 0.5s;
+}
+.main-navigation.fixed .inside-navigation {
+    padding: 7px 0;
+}
+.main-navigation .menu-toggle {
+    display: none;
+    flex: 0 0 1em;
+    order: 1;
+    line-height: 35px;
+	text-align: left;
+}
+
+.main-navigation .logo-menu {
+    display: inline-block;
+    max-width: 12%;
+    margin-right: auto;
+    transition: max-width 0.5s;
+}
+    .main-navigation.fixed .logo-menu {
+        max-width: 10%;
+    }
+
+    .main-navigation .main-nav {
+        display: inline-block;
+        max-width: 85%;
+        margin: 0 auto;
+        transition: max-width 0.5s;
+    }
+        .main-navigation.fixed .main-nav {
+            max-width: 90%;
+        }
+        .main-navigation ul {
+            margin: 0;
+        }
+        .main-navigation li {
+            display: inline-block;
+        }
+        .main-navigation .main-nav ul li > a {
+            font: bold 13px 'Open sans', sans-serif;
+            letter-spacing: 2px;
+            line-height: 45px;
+            padding: 0 20px;
+            text-transform: uppercase;
+            background-color: transparent;
+            transition: all 0.4s 0.1s;
+        }
+            .main-navigation .main-nav ul.menu li > a:hover, 
+            .main-navigation .main-nav ul.menu li.sfHover > a {
+                color: #C0001F;
+            }
+            .main-navigation .main-nav ul.menu li > a:hover, 
+            .main-navigation .main-nav ul.menu li.sfHover > a,
+            .main-navigation .main-nav ul li[class*="current-menu-"] > a {
+                background-color: transparent;
+                transition-delay: 0s;
+            }
+    
+    .main-navigation a {
+        font-size: inherit;
+    }
+    .main-navigation button {
+        font-family: inherit;
+    }
+
+/* End header */
+
+
+@media only screen AND (max-width: 1024px) {
+    .main-navigation .menu {
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+        max-height: 1px;
+        transform: translateY(100px) scale(0);
+        transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .main-navigation.toggled .menu {
+        visibility: visible;
+        opacity: 1;
+        max-height: 320px;   
+        transform: translateY(0) scale(1);
+    }
+    .main-navigation .main-nav .menu > li {
+        display: block;
+        text-align: left;
+    }
+    .main-navigation .inside-navigation {
+        flex-wrap: wrap;
+    }
+    .main-navigation .logo-menu {
+        order: 2;
+        flex: 1 1 auto;
+        margin: auto;
+        /* min-width: 50%;
+        max-width: 100%; */
+    }
+    .main-navigation .main-nav {
+        order: 3;
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .main-navigation.fixed .main-nav {
+        max-width: 100%;
+    }
+    .main-navigation .menu-toggle {
+        display: block;
+        font-size: inherit;
+    }
+    .main-navigation .logo-menu h1 {
+        font-size: 1.3em;
+    }
+    .main-navigation.fixed .logo-menu h1 {
+        font-size: 1.25em;
+    }
+}
+
+
+@media only screen AND (max-width: 500px) {
+    .main-navigation .logo-menu {
+        max-width: 20%;
+    }
+    .main-navigation.fixed .logo-menu {
+        max-width: 15%;
+    }
+}
