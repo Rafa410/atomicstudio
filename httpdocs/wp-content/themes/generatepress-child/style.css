@@ -132,7 +132,7 @@ div.wpforms-contact .wpforms-field-container > div.wpforms-field {
 .wpforms-contact .wpforms-field-container .wpforms-field > textarea,
 .wpforms-contact .wpforms-field-container .wpforms-field > textarea:focus {
     border: 0;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #c0001f;
 }
 .wpforms-container.wpforms-contact .wpforms-submit-container > button[type=submit] {
     padding: .25em 1.5em;
@@ -153,6 +153,7 @@ div.wpforms-contact .wpforms-field-container > div.wpforms-field {
         position: absolute;
         font-weight: bold;
         margin-left: -10px;
+        line-height: 45px;
         opacity: 0;
         transform: scale(0);
         transition: all 0.3s;
@@ -199,6 +200,23 @@ div.wpforms-contact .wpforms-field-container > div.wpforms-field {
         fill: #C0001F;
     }
 
-.site-info a:hover {
+.site-info a:hover, .cn-privacy-policy-link, .cn-privacy-policy-link:hover {
     color: #C0001F;
+}
+
+.cn-privacy-policy-link {
+    font-weight: bold;
+}
+.cn-button.bootstrap {
+    background: #c0001f;
+}
+
+#cookie-notice {
+    transition: transform 0.5s;
+}
+.cookie-notice-custom-hidden {
+    transform: translate3d(0, 100%, 0) !important;
+}
+div.cookie-notice-container {
+    padding: 0.8em 2em;
 }
