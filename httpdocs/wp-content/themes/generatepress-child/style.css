@@ -18,10 +18,10 @@ Template: generatepress
     background-color: currentColor;
     transition: width .3s ease;
 }
-    .main-navigation ul li > a:hover::after {
+    .main-navigation ul li > a:hover::after,
+    .main-navigation ul li.sfHover > a::after {
         width: 100%;
     }
-
 
 
 .artists-section .elementor-image-box-content,
