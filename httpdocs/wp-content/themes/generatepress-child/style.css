@@ -183,6 +183,10 @@ div.wpforms-contact .wpforms-field-container > div.wpforms-field {
 .site-footer .copyright-bar {
     margin-top: 1.5em;
 }
+.site-info .copyright-bar .copyright {
+    letter-spacing: 1px;
+}
+
 .site-footer .footer-bar {
     text-align: center;
 }
@@ -221,10 +225,35 @@ div.cookie-notice-container {
     padding: 0.5em 2em;
 }
 
-li.menu-item::after {
-    content: "·";
-    margin-left: 1.5em;
+#menu-menu-footer li.menu-item {
+    font-size: 14px;
+    font-weight: 300;
 }
-li.menu-item:last-child::after {
-    display: none;
+    #menu-menu-footer li.menu-item::after {
+        content: "·";
+        margin-left: 1.5em;
+    }
+        #menu-menu-footer li.menu-item:last-child::after {
+            display: none;
+        }
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+    ::-webkit-scrollbar-thumb {
+        background-color: #a0a0a0;
+        border-radius: 2px;
+    }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #c0001f;
+        }
+
+
+@media only screen AND (max-width: 767px) {
+    .services-section .elementor-section .elementor-column > .elementor-column-wrap {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 }
