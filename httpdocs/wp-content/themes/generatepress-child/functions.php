@@ -1,5 +1,22 @@
 <?php
 
+// Carga el script de Google Analytics en el head de todas las páginas
+add_action( 'wp_head', 'gpc_load_google_analytics' );
+function gpc_load_google_analytics() {
+	?>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4GW0HTZMHT"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-4GW0HTZMHT');
+	</script>
+
+	<?php
+}
+
 // Carga scripts personalizados
 add_action( 'wp_enqueue_scripts', 'custom_scripts' );
 function custom_scripts() {
