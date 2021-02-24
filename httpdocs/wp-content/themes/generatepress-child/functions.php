@@ -30,7 +30,11 @@ function custom_scripts() {
 // Añade el logo al menu del header
 add_action( 'generate_inside_navigation' , 'gpc_generate_menu_logo' );
 function gpc_generate_menu_logo() {
-	$html = '<div class="logo-menu"><a href="https://www.atomicstudio75.com"><img src="https://atomicstudio75.com/wp-content/uploads/2020/08/logo-atomic-studio.png" alt="Atomic Studio" /></a></div>';
+	$logo_url = ( function_exists( 'the_custom_logo' ) && get_theme_mod( 'custom_logo' ) ) ? wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' ) : false;
+	$logo_url = ( $logo_url ) ? $logo_url[0] : generate_get_option( 'logo' );
+	$logo_url = esc_url( apply_filters( 'generate_logo', $logo_url ) );
+
+	$html = '<div class="logo-menu"><a href="https://www.atomicstudio75.com"><img src="' . $logo_url . '" alt="Atomic Studio" /></a></div>';
 	echo $html;
 }
 
